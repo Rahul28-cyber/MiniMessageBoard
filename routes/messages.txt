@@ -1,0 +1,22 @@
+[
+  {
+    "user": "Alice",
+    "message": "Hello everyone! This board looks great.",
+    "added": "2025-06-25T22:08:00.000Z"
+  },
+  {
+    "user": "Bob",
+    "message": "Agreed, loving the message board vibe!",
+    "added": "2025-06-25T18:30:00.000Z"
+  },
+  {
+    "user": "Developer",
+    "message": "I guess Tech is difficult but still is interesting          ",
+    "added": "2025-07-11T17:31:14.785Z"
+  },
+  {
+    "user": "NodeJS",
+    "message": "Guess the project works!!\r\n",
+    "added": "2025-07-11T17:38:06.420Z"
+  }
+]
