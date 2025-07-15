@@ -15,6 +15,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+      justify-content: center;
     }
 
     .success {
@@ -66,15 +67,17 @@
     }
 
     button {
-      border: 2px solid #24b4fb;
-      background-color: #24b4fb;
-      border-radius: 0.9em;
-      cursor: pointer;
-      padding: 0.4em 0.8em 0.4em 0.6em;
-      transition: all ease-in-out 0.2s;
-      font-size: 16px;
-      position: relative;
-      top: 4rem;
+          border: 2px solid #24b4fb;
+    background-color: #24b4fb;
+    border-radius: 0.9em;
+    cursor: pointer;
+    padding: 0.4em 0.8em 0.4em 0.6em;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+    position: relative;
+    top: -4rem;
+    /* margin-bottom: 15px; */
+    left: 69rem;
     }
 
     button span {
@@ -91,7 +94,20 @@
   </style>
 </head>
 <body>
+  <div class="project">
   <h1><%= title %></h1>
+
+  <a href="/new">
+    <button>
+      <span>
+        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+        </svg>
+        Post
+      </span>
+    </button>
+    </a>
 
   <div class="notifications-container">
     <% messages.forEach(msg => { %>
@@ -110,29 +126,19 @@
           </div>
         </div>
         <div class="message-date">
-          <%= new Date(msg.added).toLocaleString('en-GB', {
+          <%= new Date(msg.added).toLocaleString('en-IN', {
+            timeZone: 'Asia/Kolkata',
             hour: 'numeric',
-            minute: '2-digit',
+            minute: 'numeric',
             hour12: true,
-            day: '2-digit',
+            year: 'numeric',
             month: 'short',
-            year: 'numeric'
+            day: 'numeric'
           }) %>
         </div>
       </div>
     <% }) %>
-  </div>
-
-  <a href="/new">
-    <button>
-      <span>
-        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
-        </svg>
-        Post
-      </span>
-    </button>
-  </a>
+  </div>  
+   </div>
 </body>
 </html>

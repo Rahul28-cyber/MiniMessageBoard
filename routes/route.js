@@ -3,16 +3,25 @@ const router = express.Router()
 const fs = require('fs')
 const path = require('path')
 
+const messages = [
+    {
+    "user": "Alice",
+    "message": "Hello everyone! This board looks great.",
+    "added": "2025-06-25T22:08:00.000Z"
+  },
+  {
+    "user": "Bob",
+    "message": "Agreed, loving the message board vibe!",
+    "added": "2025-06-25T18:30:00.000Z"
+  }
+]
+
 file = path.join(__dirname,'/messages.txt')
 
 
 router.get('/',(req,res)=>{
-    fs.readFile(file,'utf-8',(err,data)=>{
-    if(err)
-        console.log(err)
-    const text = JSON.parse(data)
-    res.render('htmlpage', {title:'Mini Message Board',messages:text})
-})
+
+    res.render('htmlpage', {title:'Mini Message Board',messages})
 })
 router.get('/new',(req,res)=>{
     res.render('form')
@@ -27,23 +36,8 @@ router.post('/new',(req,res)=>{
         added: new Date()
     }
 
-    fs.readFile(file,'utf-8',(err,data)=>{
-        let messages = []
-        if(!err){
-            try{
-                messages = JSON.parse(data)
-            }
-            catch(err){
-                console.log(err)
-            }
-        }
-        messages.push(newMessage)
-
-        fs.writeFile(file, JSON.stringify(messages, null, 2), (err) => {
-      if (err) console.log('Error writing file:', err);
-      res.redirect('/');
-        })
-    })
+    messages.push(newMessage)
+res.redirect('/');
 })
 
 module.exports = router
