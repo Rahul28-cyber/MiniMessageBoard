@@ -8,9 +8,9 @@
     body {
       background: #f9fdf9;
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      /* display: flex; */
+      /* justify-content: center; */
+      /* align-items: center; */
       height: 100vh;
       margin: 0;
     }
@@ -27,6 +27,8 @@
       box-sizing: border-box;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+      left: 37%;
     }
 
     .form-group {
@@ -60,14 +62,14 @@
     }
 
     .form-group textarea {
-      resize: vertical;
       height: 96px;
       resize: none;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .form-submit-btn {
       padding: 12px 16px;
-      background-color: #38a169;
+      background-color: #B85042;
       color: white;
       border: none;
       border-radius: 6px;
@@ -77,17 +79,98 @@
     }
 
     .form-submit-btn:hover {
-      background-color: #2f855a;
+      background-color: #9F4035;
+    }
+    nav ul{
+      display: flex;
+      list-style-type: none;
+      gap: 20px;
+    }
+    nav{
+      display: flex;
+      /* border: 1px solid black; */
+      background: #5F756C;
+      justify-content: space-between;
+      padding: 0px 33px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 95.2%;
+    border-radius: 0px 0px 7px 7px;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 20px;
+    }
+    .logout{
+      color: white;
+      text-decoration: none;
+    }
+    nav ul li a button{
+      color: #3C3C3B;
+      text-decoration: none;
+    }
+    .btn{
+      background: #5F756C;
+      border-color: #5F756C;
+    }
+    ul li a:hover button{
+      color: white;
+    }
+    .post{
+      background:#B85042;
+    }
+    a .post{
+      color: white;
+    }
+    h3{
+      color: #31473A;
+    }
+    button {
+    border: 2px solid #B85042;
+    background-color: #B85042;
+    border-radius: 0.9em;
+    cursor: pointer;
+    padding: 0.4em 0.8em 0.4em 0.6em;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+    position: relative;
+    left: 1rem;
+    color: white;
+    
+    /* margin-bottom: 15px; */
+    
+    }
+
+    button span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #9F4035;
+      /* border: 2px solid #9F4035; */
+
+    }
+    body{
+      background: #A7BEAE;
     }
   </style>
 </head>
 <body>
+  <nav>
+    <h3><%= title %></h3>
+    <ul>
+      <li><a href="/"><button class="btn home">Home</button></a></li>
+      <li><a href="/new"><button class="btn post">Post</button></a></li>
+      <li><a href=""><button class="btn yourpost">YourPost</button></a></li>
+    </ul>
+    <button><a class="logout" href="/logout">Logout</a></button>
+  </nav>
   <div class="form-container">
     <form class="form" action="/new" method="POST">
-      <div class="form-group">
-        <label for="email">User Name</label>
-        <input type="text" id="email" name="email" required />
-      </div>
       <div class="form-group">
         <label for="textarea">Text Message</label>
         <textarea name="textarea" id="textarea" rows="6" required></textarea>
