@@ -92,8 +92,7 @@ router.post('/register', async (req,res)=>{
             }
         });
 
-        const isDev = process.env.NODE_ENV !== 'production';
-        const baseurl = isDev ? 'http://localhost:3000' : process.env.BASE_URL;
+        const baseurl = process.env.BASE_URL || 'http://localhost:3000';
         const verificationUrl = `${baseurl}/verify/${verificationToken}`;
 
         await transporter.sendMail({
